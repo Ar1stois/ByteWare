@@ -29,15 +29,15 @@ local DaHoodSettings = {
     
     Enabled = false,
     
-    SilentAim = true,
+    SilentAim = false,
 
-    AimLock = false,
+    AimLock = true,
 
     Prediction = 0.1,
 
-    AimLockKeybind = Enum.KeyCode.Q,
+    AimLockKeybind = Enum.KeyCode.LeftAlt,
 
-    Resolver = true,
+    Resolver = false,
     
 }
 --------------------------------------------------
