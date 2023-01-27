@@ -25,6 +25,8 @@ local CurrentCamera = Workspace.CurrentCamera
 ---------------------------------------------------------------
 local DaHoodSettings = {
     
+    CanToggle = false,
+    
     Enabled = false,
     
     SilentAim = true,
@@ -45,7 +47,7 @@ getgenv().Aiming.FOV = 30
 
 function Aiming.Check()
 
-    if not (Aiming.Enabled == true and Aiming.Selected ~= LocalPlayer and Aiming.SelectedPart ~= nil and getgenv().DaHoodSettings.Enabled == true) then
+    if not (Aiming.Enabled == true and Aiming.Selected ~= LocalPlayer and Aiming.SelectedPart ~= nil and getgenv().DaHoodSettings.Enabled == true and getgenv().DaHoodSettings.CanToggle == true) then
 
         return false
 
@@ -181,7 +183,7 @@ RunService:BindToRenderStep("AimLock", 0, function()
 end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(key)
-    if key.KeyCode == getgenv().DaHoodSettings.AimLockKeybind then
+    if key.KeyCode == getgenv().DaHoodSettings.AimLockKeybind and getgenv().DaHoodSettings.CanToggle == true then
         getgenv().DaHoodSettings.Enabled = not getgenv().DaHoodSettings.Enabled
     end
 end)
